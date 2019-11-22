@@ -1,0 +1,28 @@
+love2d.org
+https://love2d.org/wiki/Category:Tutorials
+
+OSMstudios - Love2d Platformer Tutorial
+http://osmstudios.com/tutorials/love2d-platformer-tutorial-part-1-the-basics
+
+Serilization - Serialization is the process of turning a table and all its contents into a string
+https://github.com/bakpakin/binser
+
+HUMP - Helper Utilities for Massive Progression
+https://github.com/vrld/hump
+
+BUMP - Lua collision-detection library for axis-aligned rectangles
+https://github.com/kikito/bump.lua
+
+Tilemap editor
+https://www.mapeditor.org/
+
+STI - Simple Tiled Implementation is a Tiled map loader and renderer designed for the awesome LÖVE framework
+https://github.com/karai17/Simple-Tiled-Implementation
+
+opengameart.org
+Authors: rubberduck, Cpt_Flash, qubodup, bevouliin.com, Macro, dorkster, Brandon Morris
+
+openpixelproject.com
+
+Simple Menu by nkorth
+https://love2d.org/forums/viewtopic.php?f=5&t=3636&hilit=menuscroll
