@@ -1,4 +1,3 @@
-
 -- Import our libraries.
 local Gamestate = require 'libs.hump.gamestate'
 local Class = require 'libs.hump.class'
@@ -15,9 +14,6 @@ local Swing = require 'entities.swing'
 local Bonus = require 'entities.gem'
 local camera = require 'libs.camera'
 
-
-
-
 -- Declare a couple immportant variables
 player = nil
 enemy = nil
@@ -26,14 +22,12 @@ tramp = nil
 swing = nil
 bonus = nil
 
-
-
 gameLevel1 = Class{
   __includes = LevelBase
 }
 
 function gameLevel1:init()
-  LevelBase.init(self, 'assets/levels/level_11.lua')
+  LevelBase.init(self, 'assets/levels/map1(2).lua')
 end
 
 function gameLevel1:enter()

@@ -14,6 +14,7 @@ local portHub = {}
 local porting = false
 local isGravityActive = true
 local movableItem = nil
+local requirecoins=5
 
 local player = Class{
   __includes = Entity -- Player class inherits our Entity class
@@ -28,7 +29,7 @@ function player:init(world, x, y)
   self.yVelocity = 0
   self.speed = 200 -- the acceleration of our player
   self.gravity = -300 -- we will accelerate towards the bottom
-  self.jumpHeight = -300 -- how fast do we accelerate towards the top
+  self.jumpHeight = -350 -- how fast do we accelerate towards the top
   self.isPlayer = true
   self.target = "Player"
   self.health = 3
@@ -190,9 +191,9 @@ function player:update(dt)
 
     if coll.other.properties ~= nil then
       if coll.other.properties.isRope then
-        if love.keyboard.isDown("up") and love.keyboard.isDown("e") then
+        if love.keyboard.isDown("up")  then
             self.y = self.y - 1
-        elseif love.keyboard.isDown("down") and love.keyboard.isDown("e") then
+        elseif love.keyboard.isDown("down")  then
             self.y = self.y + 1
         end
       elseif coll.other.properties.isHealth then
@@ -202,7 +203,11 @@ function player:update(dt)
       elseif coll.other.properties.isLife then
           self.lives = self.lives + 1
       elseif coll.other.properties.isExit then
+        if(self.bouns==5) then
           Gamestate.push(gameTransition)
+        else
+          print(123)
+          end
       end
     end
 ----------------------------

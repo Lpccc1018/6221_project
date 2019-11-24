@@ -1,54 +1,36 @@
-local Menu = require 'gamestates.menuSwitch'
---Menu = require 'gamestates.menuScroll'
-local debug = ""
-local bg=love.graphics.newImage("assets/background.png")
-
-
-fullscreen, fstype = love.window.getFullscreen( )
-
 mainMenu = Gamestate.new()
 
 function mainMenu:enter()
-	mmenuGrp = Menu.new()
-	mmenuGrp:addItem{
+	local fullscreen = love.window.getFullscreen( )
+	mainMenuGrp = Menu.new()
+	mainMenuGrp:addItem{
 		name = 'Start Game',
 		action = function()
 			Gamestate.switch(gameLevel1)
 		end
 	}
-
-	mmenuGrp:addItem{
-		name = 'Fullscreen',
+	mainMenuGrp:addItem{
+		name = 'Disable Fullscreen',
 		action = function(self)
-			if not fullscreen then
-				fullscreen = true
-				self.name = 'Disable fullscreen'
-                love.window.setFullscreen( fullscreen, "desktop" )
-                settings[1] = fullscreen
-			else
+			if fullscreen then
 				fullscreen = false
-				self.name = 'Enable fullscreen'
-                love.window.setFullscreen( fullscreen, fstype )
-                settings[1] = fullscreen
+				self.name = 'Enable Fullscreen'
+				love.window.setFullscreen(fullscreen)
+			else
+				fullscreen = true
+				self.name = 'Disable Fullscreen'
+				love.window.setFullscreen( fullscreen)
 			end
+			settings[1] = fullscreen
 		end
 	}
-	if fullscreen then
-		mmenuGrp.items[#mmenuGrp.items].name = 'Disable fullscreen'
-	else
-		mmenuGrp.items[#mmenuGrp.items].name = 'Enable fullscreen'
-	end
-
-	mmenuGrp:addItem{
+	mainMenuGrp:addItem{
 		name = 'Settings',
 		action = function()
-            if Gamestate.current() ~= settingsMenu then
-			    Gamestate.push(settingsMenu)
-            end
+			Gamestate.push(settingsMenu)
 		end
 	}
-
-	mmenuGrp:addItem{
+	mainMenuGrp:addItem{
 		name = 'Quit',
 		action = function()
 			love.event.push('quit')
@@ -57,17 +39,23 @@ function mainMenu:enter()
 end
 
 function mainMenu:update(dt)
-	mmenuGrp:update(dt)
+	mainMenuGrp:update(dt)
 end
 
 function mainMenu:draw()
-	love.graphics.draw(bg,0,0)
-	mmenuGrp:draw(10, 10)
-    --love.graphics.print(string.format("%s "..fstype, fullscreen), 500, 20)
+	local w, l = love.window.getMode()
+	local flag = love.window.getFullscreen()
+	love.graphics.setColor(1, 1, 1, 1)
+	if flag then
+		love.graphics.draw(background, 0, 0)
+	else
+		love.graphics.draw(background, 0, 0, 0, w / 1450, l / 990)
+	end
+	mainMenuGrp:draw(w / 2 - 75, l / 2 - 20)
 end
 
 function mainMenu:keypressed(key)
-	mmenuGrp:keypressed(key)
+	mainMenuGrp:keypressed(key)
 end
 
 return mainMenu
