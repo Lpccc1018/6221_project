@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
@@ -6,3 +7,14 @@
     </modules>
   </component>
 </project>
+||||||| merged common ancestors
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Platformer.iml" filepath="$PROJECT_DIR$/.idea/Platformer.iml" />
+    </modules>
+  </component>
+</project>
+>>>>>>> b8cc4a9b3b4ceb0a79aa1a9cf6253e852b3d89c9

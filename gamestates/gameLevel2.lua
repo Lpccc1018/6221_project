@@ -1,4 +1,3 @@
-
 -- Import our libraries.
 local Gamestate = require 'libs.hump.gamestate'
 local Class = require 'libs.hump.class'
@@ -12,10 +11,8 @@ local Enemy = require 'entities.enemy'
 local Box = require 'entities.box'
 local Tramp = require 'entities.tramp'
 local Swing = require 'entities.swing'
-local Bonus = require 'entities.bonus'
+local Bonus = require 'entities.gem'
 local camera = require 'libs.camera'
-
-
 
 -- Declare a couple immportant variables
 player = nil

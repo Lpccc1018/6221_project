@@ -1,52 +1,40 @@
-Menu = require 'gamestates.menuSwitch'
---Menu = require 'gamestates.menuScroll'
-
-masterVol = love.audio.getVolume()
-
 settingsMenu = Gamestate.new()
 
 function settingsMenu:enter(from)
-    self.from = from -- record previous state
-
+    -- record previous state
+    self.from = from
+    local masterVol = love.audio.getVolume()
 	settingsGrp = Menu.new()
-
 	settingsGrp:addItem{
 		name = 'Controls',
 		action = function()
-            if Gamestate.current() ~= controlMenu then
-			    Gamestate.push(controlMenu)
-            end
+			Gamestate.push(controlMenu)
 		end
 	}
-
 	settingsGrp:addItem{
 		name = 'Sound',
 		action = function(self)
-          vol = self.btPos/10
-          love.audio.setVolume(vol)
-          settings[2] = vol
+			vol = self.btPos / 10
+			love.audio.setVolume(vol)
+			settings[2] = vol
 		end,
-        btSlot = 11,
-        btPos = masterVol * 10
+		btSlot = 11,
+		btPos = masterVol * 10
 	}
-
 	settingsGrp:addItem{
 		name = 'Music',
 		action = function(self)
-          --sources = {}
-          if self.btPos == 0 then
-            love.audio.stop()
-            settings[3] = 0
-          else
-            love.audio.play(music)
-            settings[3] = 1
-          end
-          --print(sources)
+			if self.btPos == 0 then
+				love.audio.stop()
+				settings[3] = 0
+			else
+				love.audio.play(music)
+				settings[3] = 1
+			end
 		end,
-        btSlot = 2,
-        btPos = settings[3]
+		btSlot = 2,
+		btPos = settings[3]
 	}
-
 	settingsGrp:addItem{
 		name = 'Back',
 		action = function()
@@ -60,8 +48,15 @@ function settingsMenu:update(dt)
 end
 
 function settingsMenu:draw()
-  -- draw previous screen
-	settingsGrp:draw(10, 10)
+	local w, l = love.window.getMode()
+	local flag = love.window.getFullscreen()
+	love.graphics.setColor(1, 1, 1, 1)
+	if flag then
+		love.graphics.draw(background, 0, 0)
+	else
+		love.graphics.draw(background, 0, 0, 0, w / 1450, l / 990)
+	end
+	settingsGrp:draw(w / 2 - 75, l / 2 - 20)
 end
 
 function settingsMenu:keypressed(key)

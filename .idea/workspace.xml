@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="23de11c2-4c2f-4a9f-929c-26e61775f8d2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+||||||| merged common ancestors
+    <list default="true" id="23de11c2-4c2f-4a9f-929c-26e61775f8d2" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="23de11c2-4c2f-4a9f-929c-26e61775f8d2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/levels/level_1.lua" beforeDir="false" afterPath="$PROJECT_DIR$/assets/levels/level_1.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/levels/level_11.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entities/player.lua" beforeDir="false" afterPath="$PROJECT_DIR$/entities/player.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/controlmenu.lua" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/controlmenu.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/gameLevel1.lua" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/gameLevel1.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/gameLevel2.lua" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/gameLevel2.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/gamefinished.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/mainmenu.lua" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/mainmenu.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/menuScroll.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/menuSwitch.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/pause.lua" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/pause.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/settingsmenu.lua" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/settingsmenu.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.lua" beforeDir="false" afterPath="$PROJECT_DIR$/main.lua" afterDir="false" />
+    </list>
+>>>>>>> b8cc4a9b3b4ceb0a79aa1a9cf6253e852b3d89c9
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Lua Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
