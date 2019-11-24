@@ -12,7 +12,7 @@ local Enemy = require 'entities.enemy'
 local Box = require 'entities.box'
 local Tramp = require 'entities.tramp'
 local Swing = require 'entities.swing'
-local Bonus = require 'entities.bonus'
+local Bonus = require 'entities.gem'
 local camera = require 'libs.camera'
 
 

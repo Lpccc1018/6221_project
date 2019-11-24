@@ -269,7 +269,7 @@ function player:draw()
   love.graphics.draw(self.img, self.x, self.y)
   love.graphics.print("Health: "..self.health, camera.x + 10, camera.y + 10)
   love.graphics.print("Lives: "..self.lives, camera.x + 10, camera.y + 20)
-  love.graphics.print("Bonus: "..self.bonus, camera.x + 10, camera.y + 30)
+  love.graphics.print("Coins: "..self.bonus, camera.x + 10, camera.y + 30)
   love.graphics.print(message, self.x-50,310)
 end
 

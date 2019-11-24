@@ -12,8 +12,9 @@ local Enemy = require 'entities.enemy'
 local Box = require 'entities.box'
 local Tramp = require 'entities.tramp'
 local Swing = require 'entities.swing'
-local Bonus = require 'entities.bonus'
+local Bonus = require 'entities.gem'
 local camera = require 'libs.camera'
+
 
 
 
@@ -26,12 +27,13 @@ swing = nil
 bonus = nil
 
 
+
 gameLevel1 = Class{
   __includes = LevelBase
 }
 
 function gameLevel1:init()
-  LevelBase.init(self, 'assets/levels/level_1.lua')
+  LevelBase.init(self, 'assets/levels/level_11.lua')
 end
 
 function gameLevel1:enter()
@@ -41,7 +43,6 @@ function gameLevel1:enter()
   LevelBase.Entities:add(enemy)
   box = Box(self.world,  32, 32)
   LevelBase.Entities:add(box)
-
   swing = Swing(self.world,  32, 32)
   LevelBase.Entities:add(swing)
   bonus = Bonus(self.world,  32, 32)
