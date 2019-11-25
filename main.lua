@@ -14,39 +14,21 @@ pause = require 'gamestates.pause'
 AD = require 'gamestates.AD'
 wrongAns = require 'gamestates.wrongAns'
 rightAns = require 'gamestates.rightAns'
+reminder= require 'gamestates.reminder'
+victory= require 'gamestates.victory'
 -- game levels
-game = {gameLevel1, gameLevel2, gamefinished}
+game = {gameLevel1, gameLevel2, victory}
 -- menu base
 Menu = require 'gamestates.menuBase'
 -- background image
 background = love.graphics.newImage("assets/background.png")
+-- victory image
+winning= love.graphics.newImage("assets/winning.png")
 
 function love.load()
+    video = love.graphics.newVideo("assets/adv.ogv",{ audio = true })
 	Gamestate.registerEvents()
 	Gamestate.switch(mainMenu)
-	
-	-- get custom settings from file
-	if love.filesystem.getInfo('settings.txt') then
-		local chunk = love.filesystem.load('settings.txt')
-		settings = chunk()
-	else
-		-- write default settings
-		settings = {false, 1, 1, "left", "right", "up"}
-	end
-	-- set whether full screen
-	love.window.setFullscreen(true)
-	if settings[1] == false then
-		mainMenuGrp.items[2]:action()
-	end
-	-- set music
-	music = love.audio.newSource("/assets/TremLoadingloopl.wav","static")
-	music:setLooping(true)
-	music:setVolume(settings[2])
-	if settings[3] == 0 then
-		music:stop()
-	else
-		music:play(music)
-	end
 end
 
 function love.keypressed(key)
@@ -56,6 +38,4 @@ function love.keypressed(key)
 end
 
 function love.quit()
-	success, message = love.filesystem.write('settings.txt', serialize(settings))
-	print('Save Settings. Saved? '..tostring(success))
 end

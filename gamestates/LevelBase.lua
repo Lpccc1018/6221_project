@@ -63,7 +63,6 @@ else
     boundY = math.min(player.y - halfScreen, mapHeight - love.graphics.getHeight()) -- lock camera at the right side of the screen
    end
 
-
   camera:setPosition(boundX, boundY)
 end
 

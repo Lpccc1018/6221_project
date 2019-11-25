@@ -6,7 +6,7 @@ local Class = require 'libs.hump.class'
 local LevelBase = require 'gamestates.LevelBase'
 
 -- Import the Entities we will build.
-local Player = require 'entities.player'
+Player = require 'entities.player'
 local Enemy = require 'entities.enemy'
 local Box = require 'entities.box'
 local Tramp = require 'entities.tramp'
@@ -27,20 +27,31 @@ gameLevel1 = Class{
 }
 
 function gameLevel1:init()
-  LevelBase.init(self, 'assets/levels/map1(2).lua')
+  LevelBase.init(self, 'assets/levels/level_1.lua')
 end
 
 function gameLevel1:enter()
+	LevelBase.Entities:clear()
   player = Player(self.world,  32, 64)
   LevelBase.Entities:add(player)
-  enemy = Enemy(self.world,  32, 64)
+  enemy = Enemy(self.world,  700, 64)
   LevelBase.Entities:add(enemy)
+  enemy2 = Enemy(self.world,  300, 64)
+  LevelBase.Entities:add(enemy2)
   box = Box(self.world,  32, 32)
   LevelBase.Entities:add(box)
   swing = Swing(self.world,  32, 32)
   LevelBase.Entities:add(swing)
   bonus = Bonus(self.world,  32, 32)
   LevelBase.Entities:add(bonus)
+  bonus1 = Bonus(self.world,  100, 50)
+  LevelBase.Entities:add(bonus1)
+  bonus1 = Bonus(self.world,  150, 200)
+  LevelBase.Entities:add(bonus1)
+  bonus1 = Bonus(self.world,  150, 720)
+  LevelBase.Entities:add(bonus1)
+  bonus1 = Bonus(self.world,  200, 50)
+  LevelBase.Entities:add(bonus1)
 end
 
 function gameLevel1:update(dt)

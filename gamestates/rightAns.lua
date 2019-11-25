@@ -20,7 +20,9 @@ end
 
 function rightAns:keypressed(key)
   if key == 'return' then
-  	Gamestate.switch(gameLevel1)
+     Player:reset()
+	 return Gamestate.pop()
+
   end
 end
 

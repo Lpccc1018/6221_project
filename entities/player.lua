@@ -15,6 +15,9 @@ local porting = false
 local isGravityActive = true
 local movableItem = nil
 local requirecoins=5
+local resetflag=false
+local isDead = false
+local reminderFlag = false
 
 local player = Class{
   __includes = Entity -- Player class inherits our Entity class
@@ -99,6 +102,10 @@ function player:collisionFilter(other)
     return 'slide'
   end
 
+end
+
+function player:reset()
+  resetflag=true
 end
 
 function player:update(dt)
@@ -187,6 +194,7 @@ function player:update(dt)
     if coll.other.isBonus then
       self.bonus = self.bonus + 1
       coll.other:destroy()
+      reminderFlag = false
     end
 
     if coll.other.properties ~= nil then
@@ -203,11 +211,16 @@ function player:update(dt)
       elseif coll.other.properties.isLife then
           self.lives = self.lives + 1
       elseif coll.other.properties.isExit then
-        if(self.bouns==5) then
+        if(self.bonus==5) then
           Gamestate.push(gameTransition)
-        else
-          print(123)
-          end
+          self.bonus=0
+        elseif reminderFlag == false then
+        	reminderFlag = true
+        	Gamestate.push(reminder)
+        end
+      elseif coll.other.properties.isDead and not isDead then
+        self.health=0
+        self.lives=0
       end
     end
 ----------------------------
@@ -239,7 +252,8 @@ function player:update(dt)
 
     if self.health <= 0 then
       self.lives = self.lives - 1
-      if self.lives == 0 then
+      if self.lives <= 0 then
+        isDead = true
           Gamestate.push(gamefinished)
       end
       self.health = 3
@@ -271,6 +285,16 @@ function love.keyreleased(key)
 end
 
 function player:draw()
+  if resetflag then
+     resetflag=false
+    isDead = false
+    self.x=32
+    self.y=32
+    self.world:remove(self)
+    self.world:add(self,self:getRect())
+    self.lives=1
+    self.health=3
+  end
   love.graphics.draw(self.img, self.x, self.y)
   love.graphics.print("Health: "..self.health, camera.x + 10, camera.y + 10)
   love.graphics.print("Lives: "..self.lives, camera.x + 10, camera.y + 20)

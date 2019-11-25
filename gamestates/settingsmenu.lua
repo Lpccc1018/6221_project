@@ -38,6 +38,8 @@ function settingsMenu:enter(from)
 	settingsGrp:addItem{
 		name = 'Back',
 		action = function()
+			success, message = love.filesystem.write('settings.txt', serialize(settings))
+			print('Save Settings. Saved? '..tostring(success))
 			return Gamestate.pop()
 		end
 	}

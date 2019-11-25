@@ -1,6 +1,28 @@
 mainMenu = Gamestate.new()
 
 function mainMenu:enter()
+	-- write default settings
+	settings = {false, 1, 1, "left", "right", "up"}
+	-- get custom settings from file
+	if love.filesystem.getInfo('settings.txt') then
+		local chunk = love.filesystem.load('settings.txt')
+		settings = chunk()
+	end
+	-- set whether full screen
+	love.window.setFullscreen(true)
+	if settings[1] == false then
+		mainMenuGrp.items[2]:action()
+	end
+	-- set music
+	music = love.audio.newSource("/assets/TremLoadingloopl.wav","static")
+	music:setLooping(true)
+	music:setVolume(settings[2])
+	if settings[3] == 0 then
+		music:stop()
+	else
+		music:play(music)
+	end
+	
 	local fullscreen = love.window.getFullscreen( )
 	mainMenuGrp = Menu.new()
 	mainMenuGrp:addItem{
