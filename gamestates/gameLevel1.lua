@@ -12,7 +12,10 @@ local Box = require 'entities.box'
 local Tramp = require 'entities.tramp'
 local Swing = require 'entities.swing'
 local Bonus = require 'entities.gem'
+local Portal = require 'entities.transition'
 local camera = require 'libs.camera'
+local fake=require 'entities.fakegem'
+
 
 -- Declare a couple immportant variables
 player = nil
@@ -31,27 +34,47 @@ function gameLevel1:init()
 end
 
 function gameLevel1:enter()
-	LevelBase.Entities:clear()
-  player = Player(self.world,  32, 64)
+  LevelBase.Entities:clear()
+  player = Player(self.world,  32, 32)
   LevelBase.Entities:add(player)
-  enemy = Enemy(self.world,  700, 64)
+  enemy = Enemy(self.world,  384, 576)
   LevelBase.Entities:add(enemy)
-  enemy2 = Enemy(self.world,  300, 64)
+  enemy2 = Enemy(self.world,  256, 864)
   LevelBase.Entities:add(enemy2)
-  box = Box(self.world,  32, 32)
+  enemy3 = Enemy(self.world,  2816, 1312)
+  LevelBase.Entities:add(enemy3)
+  box = Box(self.world,  320, 320)
   LevelBase.Entities:add(box)
   swing = Swing(self.world,  32, 32)
   LevelBase.Entities:add(swing)
-  bonus = Bonus(self.world,  32, 32)
+  portal1 =Portal(self.world,  416, 1504)
+  LevelBase.Entities:add(portal1)
+  portal2 =Portal(self.world,  1536, 448)
+  LevelBase.Entities:add(portal2)
+  portal3 =Portal(self.world,  3872, 1504)
+  LevelBase.Entities:add(portal3)
+  bonus = Bonus(self.world,  1600, 928)
   LevelBase.Entities:add(bonus)
-  bonus1 = Bonus(self.world,  100, 50)
+  bonus1 = Bonus(self.world,  1536, 1344)
   LevelBase.Entities:add(bonus1)
-  bonus1 = Bonus(self.world,  150, 200)
+  bonus1 = Bonus(self.world,  3808, 1536)
   LevelBase.Entities:add(bonus1)
-  bonus1 = Bonus(self.world,  150, 720)
+  bonus1 = Bonus(self.world,  3488, 128)
   LevelBase.Entities:add(bonus1)
-  bonus1 = Bonus(self.world,  200, 50)
+  bonus1 = Bonus(self.world,  2496, 480)
   LevelBase.Entities:add(bonus1)
+  fakebonus=fake(self.world,  1376, 480)
+  LevelBase.Entities:add(fakebonus)
+  fakebonus1=fake(self.world,  1600, 1120)
+  LevelBase.Entities:add(fakebonus1)
+  fakebonus2=fake(self.world,  1600, 1504)
+  LevelBase.Entities:add(fakebonus2)
+  fakebonus3=fake(self.world,  4736, 1536)
+  LevelBase.Entities:add(fakebonus3)
+  tramp1=Tramp(self.world,  3000, 960)
+  LevelBase.Entities:add(tramp1)
+  tramp2=Tramp(self.world,  3050, 480)
+  LevelBase.Entities:add(tramp2)
 end
 
 function gameLevel1:update(dt)
@@ -62,6 +85,7 @@ function gameLevel1:update(dt)
 end
 
 function gameLevel1:draw()
+  love.graphics.printf('Choose one!',3584,736,2, 'center', 0, 2, 2)
   -- Attach the camera before drawing the entities
   camera:set()
 

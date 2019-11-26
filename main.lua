@@ -27,6 +27,7 @@ winning= love.graphics.newImage("assets/winning.png")
 
 function love.load()
     video = love.graphics.newVideo("assets/adv.ogv",{ audio = true })
+	audio = love.audio.newSource("/assets/bang_01.ogg","static")
 	Gamestate.registerEvents()
 	Gamestate.switch(mainMenu)
 end

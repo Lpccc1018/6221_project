@@ -13,7 +13,7 @@ local gem = Class{
 
 function gem:init(world, x, y)
   self.animation = newAnimation(love.graphics.newImage('/assets/MonedaD.png'), width, height, 1)
-  Entity.init(self, world, x+540, y, width, height)
+  Entity.init(self, world, x, y, width, height)
 
   self.isBonus = true
   self.properties = {}

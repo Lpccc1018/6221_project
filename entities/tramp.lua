@@ -8,7 +8,7 @@ local tramp = Class{
 function tramp:init(world, x, y)
   self.img = love.graphics.newImage('/assets/tramp1.png')
   self.img1 = love.graphics.newImage('/assets/tramp2.png')
-  Entity.init(self, world, x+570, 310, self.img:getWidth(), self.img:getHeight())
+  Entity.init(self, world, x, y, self.img:getWidth(), self.img:getHeight())
 
   -- Add our unique tramp values
   self.yVelocity = 0

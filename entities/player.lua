@@ -16,6 +16,7 @@ local isGravityActive = true
 local movableItem = nil
 local requirecoins=5
 local resetflag=false
+local portalflag=false
 local isDead = false
 local reminderFlag = false
 
@@ -179,7 +180,7 @@ function player:update(dt)
       self.yVelocity = 0
       self.isJumping = false
       self.isClimbing = false
-      if coll.other.tramp and love.keyboard.isDown("down") then 
+      if coll.other.tramp and love.keyboard.isDown("down") then
           self.yVelocity = -400
           coll.other.bounce = true
       end
@@ -196,12 +197,19 @@ function player:update(dt)
       coll.other:destroy()
       reminderFlag = false
     end
+    if coll.other.isFake then
+      coll.other:destroy()
+      love.audio.play(audio)
+    end
+    if coll.other.isPortal then
+      portalflag = true
+    end
 
     if coll.other.properties ~= nil then
       if coll.other.properties.isRope then
-        if love.keyboard.isDown("up")  then
+        if love.keyboard.isDown("w")  then
             self.y = self.y - 1
-        elseif love.keyboard.isDown("down")  then
+        elseif love.keyboard.isDown("s")  then
             self.y = self.y + 1
         end
       elseif coll.other.properties.isHealth then
@@ -294,6 +302,27 @@ function player:draw()
     self.world:add(self,self:getRect())
     self.lives=1
     self.health=3
+  end
+  if portalflag and self.x+self.img:getWidth()==portal1.x or self.x==portal1.x+64 then
+    portalflag=false
+    self.x=portal2.x+100
+    self.y=portal2.y
+    self.world:remove(self)
+    self.world:add(self,self:getRect())
+  end
+  if portalflag and self.x+self.img:getWidth()==portal2.x or self.x==portal2.x+64 then
+    portalflag=false
+    self.x=portal1.x+100
+    self.y=portal1.y
+    self.world:remove(self)
+    self.world:add(self,self:getRect())
+  end
+  if portalflag and self.x+self.img:getWidth()==portal3.x or self.x==portal3.x+64 then
+    portalflag=false
+    self.x=3648
+    self.y=288
+    self.world:remove(self)
+    self.world:add(self,self:getRect())
   end
   love.graphics.draw(self.img, self.x, self.y)
   love.graphics.print("Health: "..self.health, camera.x + 10, camera.y + 10)

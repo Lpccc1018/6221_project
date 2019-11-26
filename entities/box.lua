@@ -7,7 +7,7 @@ local box = Class{
 
 function box:init(world, x, y)
   self.img = love.graphics.newImage('/assets/crate.png')
-  Entity.init(self, world, x+120, y, self.img:getWidth(), self.img:getHeight())
+  Entity.init(self, world, x, y, self.img:getWidth(), self.img:getHeight())
 
   -- Add our unique box values
   self.yVelocity = 0
