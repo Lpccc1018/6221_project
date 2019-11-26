@@ -3,6 +3,8 @@ local Entity = require 'entities.Entity'
 local inspect = require 'entities.inspect'
 local S = 40
 local flip = 12
+local ox = 600
+local oy = 100
 
 local swing = Class{
   __includes = Entity -- swing class inherits our Entity class
@@ -10,12 +12,13 @@ local swing = Class{
 
 function swing:init(world, x, y)
   self.img = love.graphics.newImage('/assets/platform.png')
-  Entity.init(self, world, x + 600, y, self.img:getWidth(), self.img:getHeight())
+  Entity.init(self, world, x, y, self.img:getWidth(), self.img:getHeight())
 
   -- Add our unique swing values
   self.swing = true
   self.properties = {}
   self.world:add(self, self:getRect())
+  ox, oy = x, y
 end
 
 function swing:getCenter()
@@ -36,7 +39,6 @@ function swing:update(dt)
         local theta, x1,y1, x2,y2
         local r, R = 0, 50
         --local ox, oy = love.graphics.getWidth()*0.5, love.graphics.getHeight()*0.5
-        local ox, oy = 600, 100
         theta = 2*math.pi/60 * (S) -math.pi/2
         x1 = r * math.cos(theta) + ox
         y1 = r * math.sin(theta) + oy
