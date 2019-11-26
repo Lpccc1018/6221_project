@@ -30,11 +30,11 @@ gameLevel1 = Class{
 }
 
 function gameLevel1:init()
-  LevelBase.init(self, 'assets/levels/level_1.lua')
+  
 end
 
 function gameLevel1:enter()
-  LevelBase.Entities:clear()
+  LevelBase.init(self, 'assets/levels/level_1.lua')
   player = Player(self.world,  32, 32)
   LevelBase.Entities:add(player)
   enemy = Enemy(self.world,  384, 576)

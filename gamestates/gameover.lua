@@ -83,6 +83,7 @@ end
 function gamefinished:wrong()
 	if wrongAnsFlag then
 		wrongAnsFlag = false
+		Player:reset()
 		Gamestate.push(AD)
 	else
 		wrongAnsFlag=true
