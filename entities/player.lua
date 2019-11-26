@@ -45,7 +45,7 @@ function player:init(world, x, y)
   self.isJumping = false
   self.isClimbing = false
   self.swingJump = 0
-  self.soundPort = love.audio.newSource("/assets/Jump 1_Macro.wav","static")
+  self.soundPort = love.audio.newSource("/assets/jump.wav","static")
   self.world:add(self, self:getRect())
 end
 
@@ -139,6 +139,7 @@ function player:update(dt)
   -- The Jump code gets a lttle bit crazy.  Bare with me.
   if love.keyboard.isDown(settings[6], "w") then
     if self.yVelocity == 0 and not self.isClimbing then
+      self.soundPort:play()
       swingX = 0
       self.yVelocity = self.jumpHeight - self.swingJump
       self.isJumping = true
@@ -180,7 +181,7 @@ function player:update(dt)
       self.yVelocity = 0
       self.isJumping = false
       self.isClimbing = false
-      if coll.other.tramp and love.keyboard.isDown("down") then
+      if coll.other.tramp and love.keyboard.isDown("s") then
           self.yVelocity = -350
           coll.other.bounce = true
       end

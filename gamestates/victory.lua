@@ -23,6 +23,7 @@ end
 function victory:keypressed(key)
     if key=='return' then
         Gamestate.switch(mainMenu)
+        love.audio.stop(music)
     end
 end
 
