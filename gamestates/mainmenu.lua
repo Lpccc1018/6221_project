@@ -14,7 +14,7 @@ function mainMenu:enter()
 		mainMenuGrp.items[2]:action()
 	end
 	-- set music
-	music = love.audio.newSource("/assets/TremLoadingloopl.wav","static")
+	music = love.audio.newSource("/assets/funbgm.wav","static")
 	music:setLooping(true)
 	music:setVolume(settings[2])
 	if settings[3] == 0 then

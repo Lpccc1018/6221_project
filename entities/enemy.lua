@@ -15,7 +15,7 @@ local enemy = Class{
 function enemy:init(world, x, y)
   self.img = love.graphics.newImage('/assets/e1.png')
   self.animation = newAnimation(love.graphics.newImage('/assets/e1WalkSprite.png'), 54, 48, 1)
-  Entity.init(self, world, x+200, y+200, self.img:getWidth(), self.img:getHeight())
+  Entity.init(self, world, x, y, self.img:getWidth(), self.img:getHeight())
 
   -- Add our unique enemy values
   self.yVelocity = 0

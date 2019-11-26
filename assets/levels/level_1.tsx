@@ -94,9 +94,9 @@
    <property name="collidable" type="bool" value="true"/>
   </properties>
  </tile>
- <tile id="27">
+ <tile id="28">
   <properties>
-   <property name="collision" type="bool" value="true"/>
+   <property name="collidable" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="29">
@@ -169,6 +169,11 @@
   </properties>
  </tile>
  <tile id="50">
+  <properties>
+   <property name="collidable" type="bool" value="true"/>
+  </properties>
+ </tile>
+ <tile id="53">
   <properties>
    <property name="collidable" type="bool" value="true"/>
   </properties>
@@ -387,6 +392,12 @@
   <properties>
    <property name="collidable" type="bool" value="true"/>
    <property name="isExit" type="bool" value="true"/>
+  </properties>
+ </tile>
+ <tile id="119">
+  <properties>
+   <property name="collidable" type="bool" value="true"/>
+   <property name="isDead" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="122">

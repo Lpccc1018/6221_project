@@ -181,7 +181,7 @@ function player:update(dt)
       self.isJumping = false
       self.isClimbing = false
       if coll.other.tramp and love.keyboard.isDown("down") then
-          self.yVelocity = -400
+          self.yVelocity = -350
           coll.other.bounce = true
       end
     --when player's head hits an object reduce yVelocity/jump to -1
@@ -193,6 +193,7 @@ function player:update(dt)
     end
     -------------------------
     if coll.other.isBonus then
+      love.audio.play(audio1)
       self.bonus = self.bonus + 1
       coll.other:destroy()
       reminderFlag = false
@@ -303,27 +304,69 @@ function player:draw()
     self.lives=1
     self.health=3
   end
-  if portalflag and self.x+self.img:getWidth()==portal1.x or self.x==portal1.x+64 then
+  if portalflag then
+    if self.x+self.img:getWidth()==portal1.x or self.x==portal1.x+64 then
     portalflag=false
     self.x=portal2.x+100
     self.y=portal2.y
     self.world:remove(self)
     self.world:add(self,self:getRect())
+    end
   end
-  if portalflag and self.x+self.img:getWidth()==portal2.x or self.x==portal2.x+64 then
+  if portalflag  then
+    if self.x+self.img:getWidth()==portal2.x or self.x==portal2.x+64 then
     portalflag=false
     self.x=portal1.x+100
     self.y=portal1.y
     self.world:remove(self)
     self.world:add(self,self:getRect())
+      end
   end
-  if portalflag and self.x+self.img:getWidth()==portal3.x or self.x==portal3.x+64 then
+  if portalflag then
+    if self.x+self.img:getWidth()==portal3.x or self.x==portal3.x+64 then
     portalflag=false
-    self.x=3648
-    self.y=288
+    self.x=3488
+    self.y=1312
     self.world:remove(self)
     self.world:add(self,self:getRect())
+    end
   end
+  if portalflag  then
+    if self.x+self.img:getWidth()==portal4.x or self.x==portal4.x+64 then
+      portalflag=false
+      self.x=3648
+      self.y=160
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+  if portalflag  then
+    if self.x+self.img:getWidth()==portal5.x or self.x==portal5.x+64 then
+      portalflag=false
+      self.x=1409
+      self.y=450
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+    if portalflag  then
+        if self.x+self.img:getWidth()==portal6.x or self.x==portal6.x+64 then
+            portalflag=false
+            self.x=32
+            self.y=32
+            self.world:remove(self)
+            self.world:add(self,self:getRect())
+        end
+    end
+    if portalflag  then
+        if self.x+self.img:getWidth()==portal7.x or self.x==portal7.x+64 then
+            portalflag=false
+            self.x=1409
+            self.y=450
+            self.world:remove(self)
+            self.world:add(self,self:getRect())
+        end
+    end
   love.graphics.draw(self.img, self.x, self.y)
   love.graphics.print("Health: "..self.health, camera.x + 10, camera.y + 10)
   love.graphics.print("Lives: "..self.lives, camera.x + 10, camera.y + 20)
