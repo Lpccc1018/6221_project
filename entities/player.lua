@@ -19,6 +19,8 @@ local resetflag=false
 local portalflag=false
 local isDead = false
 local reminderFlag = false
+local resetX = 32
+local resetY = 32
 
 local player = Class{
   __includes = Entity -- Player class inherits our Entity class
@@ -298,8 +300,8 @@ function player:draw()
   if resetflag then
      resetflag=false
     isDead = false
-    self.x=32
-    self.y=32
+    self.x=resetX
+    self.y=resetY
     self.world:remove(self)
     self.world:add(self,self:getRect())
     self.lives=1
@@ -337,6 +339,8 @@ function player:draw()
       portalflag=false
       self.x=3648
       self.y=160
+      resetX = 3648
+      resetY = 160
       self.world:remove(self)
       self.world:add(self,self:getRect())
     end
