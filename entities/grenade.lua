@@ -9,16 +9,17 @@ local Grenade = Class{
 Grenade.radius = 8
 local Phi = 0.61803398875
 
-local width             = math.sqrt(2 * Grenade.radius * Grenade.radius)
+local width             = 10
 local height            = width
 local bounciness        = 0.4 -- How much energy is lost on each bounce. 1 is perfect bounce, 0 is no bounce
-local lifeTime          = 4   -- Lifetime in seconds
+local lifeTime          = 1   -- Lifetime in seconds
 local bounceSoundSpeed  = 30  -- How fast must a grenade go to make bouncing noises
 local gravityAccel = 500
 local debug = 0
 
 
 function Grenade:init(world, parent, x, y, vx, vy)
+  self.img=love.graphics.newImage("assets/bullet.png")
   Entity.init(self, world, x, y, width, height)
   self.world, self.l, self.t, self.w, self.h = world, x,y,width,height
   self.world:add(self, x,y,width,height)
@@ -120,10 +121,10 @@ function Grenade:update(dt)
 end
 
 function Grenade:draw(drawDebug)
-    love.graphics.print(debug, self.x,20)
+
   if drawDebug then
     love.graphics.setColor(255,55,55)
-    love.graphics.rectangle('line', self.l, self.t, self.w, self.h)
+    love.graphics.draw(self.img, self.l, self.t)
     love.graphics.setColor(255,255,255)
   end
 end
