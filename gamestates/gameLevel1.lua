@@ -35,6 +35,7 @@ function gameLevel1:init()
 end
 
 function gameLevel1:enter()
+  stagelable=1
   LevelBase.init(self, 'assets/levels/level_1.lua')
   player = Player(self.world,  32, 32)
   LevelBase.Entities:add(player)

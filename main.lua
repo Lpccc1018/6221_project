@@ -7,7 +7,7 @@ mainMenu = require 'gamestates.mainMenu'
 settingsMenu = require 'gamestates.settingsMenu'
 controlMenu = require 'gamestates.controlMenu'
 gameLevel1 = require 'gamestates.gameLevel1'
-
+gameLevel2 = require 'gamestates.gameLevel2'
 gameFinished = require 'gamestates.gameover'
 gameTransition = require 'gamestates.gameTransition'
 pause = require 'gamestates.pause'
@@ -17,7 +17,7 @@ rightAns = require 'gamestates.rightAns'
 reminder= require 'gamestates.reminder'
 victory= require 'gamestates.victory'
 -- game levels
-game = {gameLevel1, victory}
+game = {gameLevel1, gameLevel2, victory}
 -- menu base
 Menu = require 'gamestates.menuBase'
 -- background image

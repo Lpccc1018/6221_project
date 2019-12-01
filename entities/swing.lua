@@ -1,5 +1,6 @@
 local Class = require 'libs.hump.class'
 local Entity = require 'entities.Entity'
+local Entities     = require 'entities.Entities'
 local inspect = require 'entities.inspect'
 local S = 40
 local flip = 12
@@ -58,12 +59,12 @@ function swing:update(dt)
 
   ------ Loop through collisions that were Returned Only in Filter !!!----------
   for i, coll in ipairs(collisions) do
-    if coll.other.player then  
+    if coll.other.player then
         coll.other.x = coll.other.x - 1
         --flip = 0 - flip
         --if flip < 0 then S = S - 1 else S = S + 1 end
     elseif coll.normal.y < 0 then
---nothing to do 
+--nothing to do
     end
   end
 

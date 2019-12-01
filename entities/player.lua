@@ -19,8 +19,9 @@ local resetflag=false
 local portalflag=false
 local isDead = false
 local reminderFlag = false
-local resetX = 32
-local resetY = 32
+local resetX = 0
+local resetY = 0
+stagelable=nil
 
 local player = Class{
   __includes = Entity -- Player class inherits our Entity class
@@ -224,6 +225,8 @@ function player:update(dt)
           self.lives = self.lives + 1
       elseif coll.other.properties.isExit then
         if(self.bonus==5) then
+          resetX = 32
+          resetY = 32
           Gamestate.push(gameTransition)
           self.bonus=0
         elseif reminderFlag == false then
@@ -307,6 +310,7 @@ function player:draw()
     self.lives=1
     self.health=3
   end
+if stagelable==1 then
   if portalflag then
     if self.x+self.img:getWidth()==portal1.x or self.x==portal1.x+64 then
     portalflag=false
@@ -334,7 +338,7 @@ function player:draw()
     self.world:add(self,self:getRect())
     end
   end
-  if portalflag  then
+  if portalflag and stagelable==1  then
     if self.x+self.img:getWidth()==portal4.x or self.x==portal4.x+64 then
       portalflag=false
       self.x=3648
@@ -372,6 +376,385 @@ function player:draw()
             self.world:add(self,self:getRect())
         end
     end
+end
+    -- ————————————————————————————————————————————————————————————————————————————
+  if portalflag  then
+    if self.x+self.img:getWidth()==portal8.x or self.x==portal8.x+64 then
+      portalflag=false
+      self.x=1210
+      self.y=224
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+    end
+  if portalflag  then
+    if self.x+self.img:getWidth()==portal9.x or self.x==portal9.x+64 then
+      portalflag=false
+      self.x=2400
+      self.y=160
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+    end
+  if portalflag and self.y==992-50  then
+    if self.x+self.img:getWidth()==portal10.x or self.x==portal10.x+64 then
+      portalflag=false
+      self.x=4480
+      self.y=1152
+      resetX = 2400
+      resetY = 161
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+  end
+  end
+  if portalflag and self.y==704-50 then
+    if self.x+self.img:getWidth()==portal11.x or self.x==portal11.x+64 then
+      portalflag=false
+      self.x=4512
+      self.y=928
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+    end
+  if portalflag and self.y==704-50 then
+    if self.x+self.img:getWidth()==portal12.x or self.x==portal12.x+64 then
+      portalflag=false
+      self.x=4480
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==704-50 then
+    if self.x+self.img:getWidth()==portal13.x or self.x==portal13.x+64 then
+      portalflag=false
+      self.x=4512
+      self.y=416
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==704-50 then
+    if self.x+self.img:getWidth()==portal14.x or self.x==portal14.x+64 then
+      portalflag=false
+      self.x=3584
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==992-50 then
+    if self.x+self.img:getWidth()==portal15.x or self.x==portal15.x+64 then
+      portalflag=false
+      self.x=4512
+      self.y=672
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==992-50 then
+    if self.x+self.img:getWidth()==portal16.x or self.x==portal16.x+64 then
+      portalflag=false
+      self.x=4512
+      self.y=416
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==992-50 then
+    if self.x+self.img:getWidth()==portal17.x or self.x==portal17.x+64 then
+        portalflag=false
+        self.x=4000
+        self.y=416
+        self.world:remove(self)
+        self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==992-50 then
+    if self.x+self.img:getWidth()==portal18.x or self.x==portal18.x+64 then
+      portalflag=false
+      self.x=3200
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==1312-50  then
+    if self.x+self.img:getWidth()==portal19.x or self.x==portal19.x+64 then
+      portalflag=false
+      self.x=4000
+      self.y=928
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==1312-50 then
+    if self.x+self.img:getWidth()==portal20.x or self.x==portal20.x+64 then
+      portalflag=false
+      self.x=4512
+      self.y=672
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==1312-50 then
+    if self.x+self.img:getWidth()==portal21.x or self.x==portal21.x+64 then
+      portalflag=false
+      self.x=3584
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==1312-50 then
+    if self.x+self.img:getWidth()==portal22.x or self.x==portal22.x+64 then
+      portalflag=false
+      self.x=3168
+      self.y=928
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==1568-50  then
+    if self.x+self.img:getWidth()==portal23.x or self.x==portal23.x+64 then
+      portalflag=false
+      self.x=4000
+      self.y=416
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+  if portalflag and self.y==1568-50 then
+    if self.x+self.img:getWidth()==portal24.x or self.x==portal24.x+64 then
+      portalflag=false
+      self.x=2656
+      self.y=640
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==1568-50  then
+    if self.x+self.img:getWidth()==portal25.x or self.x==portal25.x+64 then
+        portalflag=false
+        self.x=4512
+        self.y=416
+        self.world:remove(self)
+        self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==1568-50 then
+    if self.x+self.img:getWidth()==portal26.x or self.x==portal26.x+64 then
+      portalflag=false
+      print("26")
+      self.x=3584
+      self.y=1248
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==480-50 then
+    if self.x+self.img:getWidth()==portal28.x or self.x==portal28.x+64 then
+      portalflag=false
+      self.x=3616
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==480-50 then
+    if self.x+self.img:getWidth()==portal29.x or self.x==portal29.x+64 then
+      portalflag=false
+      self.x=4544
+      self.y=928
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==480-50 then
+    if self.x+self.img:getWidth()==portal30.x or self.x==portal30.x+64 then
+      portalflag=false
+      self.x=4000
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==480-50 then
+    if self.x+self.img:getWidth()==portal31.x or self.x==portal31.x+64 then
+      portalflag=false
+      self.x=4000
+      self.y=672
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==736-50 then
+    if self.x+self.img:getWidth()==portal32.x or self.x==portal32.x+64 then
+      portalflag=false
+      self.x=3584
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==736-50 then
+    if self.x+self.img:getWidth()==portal33.x or self.x==portal33.x+64 then
+      portalflag=false
+      self.x=3168
+      self.y=928
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==736-50 then
+    if self.x+self.img:getWidth()==portal34.x or self.x==portal34.x+64 then
+      portalflag=false
+      self.x=4000
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==736-50 then
+    if self.x+self.img:getWidth()==portal35.x or self.x==portal35.x+64 then
+      portalflag=false
+      self.x=3168
+      self.y=640
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==992-50 then
+    if self.x+self.img:getWidth()==portal36.x or self.x==portal36.x+64 then
+      portalflag=false
+      self.x=736
+      self.y=1088
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==992-50 then
+    if self.x+self.img:getWidth()==portal37.x or self.x==portal37.x+64 then
+      portalflag=false
+      self.x=4032
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==992-50 then
+    if self.x+self.img:getWidth()==portal38.x or self.x==portal38.x+64 then
+      portalflag=false
+      self.x=4000
+      self.y=416
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==992-50  then
+  if self.x+self.img:getWidth()==portal39.x or self.x==portal39.x+64 then
+    portalflag=false
+    self.x=736
+    self.y=1088
+    self.world:remove(self)
+    self.world:add(self,self:getRect())
+  end
+end
+
+  if portalflag and self.y==1216-50 then
+    if self.x+self.img:getWidth()==portal40.x or self.x==portal40.x+64 then
+      portalflag=false
+      self.x=736
+      self.y=1088
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+if portalflag and self.y==1216-50 then
+  if self.x+self.img:getWidth()==portal41.x or self.x==portal41.x+64 then
+    portalflag=false
+    self.x=2688
+    self.y=928
+    self.world:remove(self)
+    self.world:add(self,self:getRect())
+  end
+end
+
+  if portalflag and self.y==1216-50 then
+  if self.x+self.img:getWidth()==portal42.x or self.x==portal42.x+64 then
+    portalflag=false
+    self.x=736
+    self.y=1088
+    self.world:remove(self)
+    self.world:add(self,self:getRect())
+  end
+  end
+
+  if portalflag and self.y==1216-50 then
+    if self.x+self.img:getWidth()==portal43.x or self.x==portal43.x+64 then
+      portalflag=false
+      self.x=4000
+      self.y=1504
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==1568-50 then
+    if self.x+self.img:getWidth()==portal44.x or self.x==portal44.x+64 then
+      portalflag=false
+      self.x=3200
+      self.y=1248
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+  if portalflag and self.y==1568-50 then
+    if self.x+self.img:getWidth()==portal45.x or self.x==portal45.x+64 then
+      portalflag=false
+      self.x=4512
+      self.y=672
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
+  if portalflag and self.y==1568-50 then
+    if self.x+self.img:getWidth()==portal46.x or self.x==portal46.x+64 then
+      portalflag=false
+      self.x=2400
+      self.y=160
+      self.world:remove(self)
+      self.world:add(self,self:getRect())
+    end
+  end
+
   love.graphics.draw(self.img, self.x, self.y)
   love.graphics.print("Health: "..self.health, camera.x + 10, camera.y + 10)
   love.graphics.print("Lives: "..self.lives, camera.x + 10, camera.y + 20)
