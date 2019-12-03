@@ -179,10 +179,11 @@ function gameLevel2:enter()
     LevelBase.Entities:add(swing3)
     swing2=Swing(self.world,  3040, 288)
     LevelBase.Entities:add(swing2)
-
-    OwO1=OwO(self.world,  736, 480)
+    hint2=hint(self.world,  1504, 32)
+    LevelBase.Entities:add(hint2)
+    OwO1=OwO(self.world,  718, 462)
     LevelBase.Entities:add(OwO1)
-    OwO1=OwO(self.world,  1280, 608)
+    OwO1=OwO(self.world,  1298, 590)
     LevelBase.Entities:add(OwO1)
 
 

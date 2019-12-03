@@ -17,7 +17,7 @@ local movableItem = nil
 local requirecoins=5
 local resetflag=false
 local portalflag=false
-local OwOflag=0
+local OwOflag=1
 local isDead = false
 local reminderFlag = false
 local resetX = 32
@@ -385,6 +385,7 @@ if stagelable==1 then
     end
 end
     -- ————————————————————————————————————————————————————————————————————————————
+if stagelable==2 then
   if portalflag  then
     if self.x+self.img:getWidth()==portal8.x or self.x==portal8.x+64 then
       portalflag=false
@@ -764,19 +765,20 @@ end
     end
   end
 
-    if OwOflag==1 then
+    if OwOflag%2==0 then
             self.img=love.graphics.newImage('assets/player2.png')
             self.w=10
             self.h=10
             self.world:remove(self)
             self.world:add(self,self:getRect())
     end
-    if OwOflag==2 then
+    if OwOflag%2~=0 then
         self.img=love.graphics.newImage('assets/player.png')
         self.w=28
         self.h=50
         self.world:remove(self)
         self.world:add(self,self:getRect())
+    end
     end
 
 

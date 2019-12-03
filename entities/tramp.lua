@@ -8,9 +8,8 @@ local tramp = Class{
 }
 
 function tramp:init(world, x, y)
-  self.animation = newAnimation(love.graphics.newImage('/assets/pipo.png'), width, height, 1)
-  self.img = love.graphics.newImage('/assets/pipo1.png')
-  self.img1 = love.graphics.newImage('/assets/tramp2.png')
+  self.animation = newAnimation(love.graphics.newImage('/assets/pipo1.png'), width, height, 1)
+  self.img = love.graphics.newImage('/assets/pipo2.png')
   Entity.init(self, world, x, y, width,height)
 
   -- Add our unique tramp values

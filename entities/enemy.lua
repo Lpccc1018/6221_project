@@ -29,7 +29,7 @@ function enemy:init(world, x, y)
   self.properties = {}
   self.width = self.img:getWidth()
   self.height = self.img:getHeight()
-  self.soundFire = love.audio.newSource("/assets/bang_01.ogg","static")
+  self.soundFire = love.audio.newSource("/assets/laser1.wav","static")
   self.world:add(self, self:getRect())
 end
 

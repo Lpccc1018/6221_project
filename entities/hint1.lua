@@ -26,7 +26,7 @@ end
 
 function hint1:draw()
     love.graphics.setColor(255, 255, 255)
-    love.graphics.draw(pick,2848,1088)
+    love.graphics.draw(pick,self.x,self.y)
     --love.graphics.print(inspect(debug, {depth = 1}), self.x,10)
 
 end
