@@ -24,8 +24,9 @@ local Bonus = require 'entities.gem'
 local Portal = require 'entities.transition'
 local camera = require 'libs.camera'
 local fake=require 'entities.fakegem'
-
-
+local hint=require 'entities.hint1'
+local pick=love.graphics.newImage("assets/hint1.png")
+OwO=require'entities.owo'
 
 -- Declare a couple immportant variables
 player = nil
@@ -174,15 +175,21 @@ function gameLevel2:enter()
     tramp3=Tramp(self.world,  1984, 224)
     LevelBase.Entities:add(tramp3)
 
-    swing3=Swing1(self.world,  2564, 256)
+    swing3=Swing1(self.world,  2564, 288)
     LevelBase.Entities:add(swing3)
-    swing2=Swing(self.world,  3040, 256)
+    swing2=Swing(self.world,  3040, 288)
     LevelBase.Entities:add(swing2)
+
+    OwO1=OwO(self.world,  736, 480)
+    LevelBase.Entities:add(OwO1)
+    OwO1=OwO(self.world,  1280, 608)
+    LevelBase.Entities:add(OwO1)
 
 
 end
 
 function gameLevel2:update(dt)
+    love.graphics.draw(pick,3040,130)
     self.map:update(dt) -- remember, we inherited map from LevelBase
     LevelBase.Entities:update(dt) -- this executes the update function for each individual Entity
 
@@ -190,6 +197,7 @@ function gameLevel2:update(dt)
 end
 
 function gameLevel2:draw()
+
     -- Attach the camera before drawing the entities
     camera:set()
 

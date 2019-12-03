@@ -17,10 +17,12 @@ local movableItem = nil
 local requirecoins=5
 local resetflag=false
 local portalflag=false
+local OwOflag=0
 local isDead = false
 local reminderFlag = false
-local resetX = 0
-local resetY = 0
+local resetX = 32
+local resetY = 32
+
 stagelable=nil
 
 local player = Class{
@@ -29,7 +31,6 @@ local player = Class{
 
 function player:init(world, x, y)
   self.img = love.graphics.newImage('/assets/player.png')
-
   Entity.init(self, world, x, y, self.img:getWidth(), self.img:getHeight())
 
   -- Add our unique player values
@@ -201,6 +202,12 @@ function player:update(dt)
       self.bonus = self.bonus + 1
       coll.other:destroy()
       reminderFlag = false
+    end
+    if coll.other.isOwO then
+      love.audio.play(audio2)
+      OwOflag=OwOflag+1
+      coll.other:destroy()
+
     end
     if coll.other.isFake then
       coll.other:destroy()
@@ -383,6 +390,8 @@ end
       portalflag=false
       self.x=1210
       self.y=224
+      resetX = 1210
+      resetY = 224
       self.world:remove(self)
       self.world:add(self,self:getRect())
     end
@@ -392,6 +401,8 @@ end
       portalflag=false
       self.x=2400
       self.y=160
+      resetX = 2400
+      resetY = 161
       self.world:remove(self)
       self.world:add(self,self:getRect())
     end
@@ -401,8 +412,6 @@ end
       portalflag=false
       self.x=4480
       self.y=1152
-      resetX = 2400
-      resetY = 161
       self.world:remove(self)
       self.world:add(self,self:getRect())
   end
@@ -754,6 +763,22 @@ end
       self.world:add(self,self:getRect())
     end
   end
+
+    if OwOflag==1 then
+            self.img=love.graphics.newImage('assets/player2.png')
+            self.w=10
+            self.h=10
+            self.world:remove(self)
+            self.world:add(self,self:getRect())
+    end
+    if OwOflag==2 then
+        self.img=love.graphics.newImage('assets/player.png')
+        self.w=28
+        self.h=50
+        self.world:remove(self)
+        self.world:add(self,self:getRect())
+    end
+
 
   love.graphics.draw(self.img, self.x, self.y)
   love.graphics.print("Health: "..self.health, camera.x + 10, camera.y + 10)

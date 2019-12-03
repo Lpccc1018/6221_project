@@ -1,14 +1,17 @@
 local Class = require 'libs.hump.class'
 local Entity = require 'entities.Entity'
+local width=37
+local height=32
 
 local tramp = Class{
   __includes = Entity -- tramp class inherits our Entity class
 }
 
 function tramp:init(world, x, y)
-  self.img = love.graphics.newImage('/assets/tramp1.png')
+  self.animation = newAnimation(love.graphics.newImage('/assets/pipo.png'), width, height, 1)
+  self.img = love.graphics.newImage('/assets/pipo1.png')
   self.img1 = love.graphics.newImage('/assets/tramp2.png')
-  Entity.init(self, world, x, y, self.img:getWidth(), self.img:getHeight())
+  Entity.init(self, world, x, y, width,height)
 
   -- Add our unique tramp values
   self.yVelocity = 0
@@ -38,7 +41,10 @@ function tramp:collisionFilter(other)
 end
 
 function tramp:update(dt)
-  
+    self.animation.currentTime = self.animation.currentTime + dt
+    if self.animation.currentTime >= self.animation.duration then
+        self.animation.currentTime = self.animation.currentTime - self.animation.duration
+    end
 -- Apply gravity
     self.yVelocity = self.yVelocity - self.gravity * dt
  
@@ -60,10 +66,11 @@ function tramp:update(dt)
 end
 
 function tramp:draw()
-    love.graphics.setColor(255, 255, 0)
+    love.graphics.setColor(255, 255, 255)
+    local spriteNum = math.floor(self.animation.currentTime / self.animation.duration * #self.animation.quads) + 1
     if self.bounce then
       self.soundBounce:play()
-      love.graphics.draw(self.img1, self.x, self.y)
+        love.graphics.draw(self.animation.spriteSheet, self.animation.quads[spriteNum], self.x, self.y, 0, 1, 1)
       self.bounce = false
     else
       love.graphics.draw(self.img, self.x, self.y)

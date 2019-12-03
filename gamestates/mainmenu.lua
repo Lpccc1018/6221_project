@@ -7,7 +7,7 @@ function mainMenu:enter()
 	mainMenuGrp:addItem{
 		name = 'Start Game',
 		action = function()
-			Gamestate.switch(gameLevel1)
+			Gamestate.switch(gameLevel2)
 		end
 	}
 	mainMenuGrp:addItem{

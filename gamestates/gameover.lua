@@ -74,6 +74,7 @@ function gamefinished:right()
 	if rightAnsFlag then
 		rightAnsFlag = false
 		Player:reset()
+	    OwO:reset()
 		Gamestate.pop()
 	else
 		rightAnsFlag=true

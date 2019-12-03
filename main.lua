@@ -29,6 +29,7 @@ function love.load()
     video = love.graphics.newVideo("assets/adv.ogv",{ audio = true })
 	audio = love.audio.newSource("/assets/giant2.wav","static")
     audio1=love.audio.newSource("/assets/coin2.wav","static")
+	audio2=love.audio.newSource("/assets/Bonus.wav","static")
 	Gamestate.registerEvents()
 	Gamestate.switch(mainMenu)
 end
