@@ -185,6 +185,10 @@ function gameLevel2:enter()
     LevelBase.Entities:add(OwO1)
     OwO1=OwO(self.world,  1298, 590)
     LevelBase.Entities:add(OwO1)
+    OwO1=OwO(self.world,  1202, 356)
+    LevelBase.Entities:add(OwO1)
+    OwO1=OwO(self.world,  992, 480)
+    LevelBase.Entities:add(OwO1)
 
 
 end

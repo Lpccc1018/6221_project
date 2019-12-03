@@ -4,12 +4,6 @@
     <list default="true" id="23de11c2-4c2f-4a9f-929c-26e61775f8d2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/levels/level_2.lua" beforeDir="false" afterPath="$PROJECT_DIR$/assets/levels/level_2.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pipo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pipo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pipo1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/star.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/enemy.lua" beforeDir="false" afterPath="$PROJECT_DIR$/entities/enemy.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/player.lua" beforeDir="false" afterPath="$PROJECT_DIR$/entities/player.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/tramp.lua" beforeDir="false" afterPath="$PROJECT_DIR$/entities/tramp.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gamestates/gameLevel2.lua" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/gameLevel2.lua" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
